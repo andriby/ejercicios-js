@@ -7,11 +7,14 @@
     <title>TODO</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container py-4">
         <h1>TODO</h1>
-        <input type="text" id="tarea">
-        <button type="button" onclick="agregarTarea()">Agregar tarea</button>
-        <ul id="tareas"></ul>
+        <div class="mb-3">
+            <label for="tarea">Agregar Tarea</label>
+            <input type="text" class="form-control" id="tarea" placeholder="Ej. Botar la basura">
+        </div>
+        <button type="button" onclick="agregarTarea()" class="btn btn-primary mb-3">Agregar tarea</button>
+        <ul id="tareas" class="list-group"></ul>
     </div>
     
     <script src="script.js"></script>
