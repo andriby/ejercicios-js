@@ -4,7 +4,6 @@ function jugar(){
     let bot = Math.floor(Math.random() * 3)
     let resultado = ""
 
-    console.log(usr, bot)
     if (usr == 0 && bot == 2 || usr == 1 && bot == 0 || usr == 2 && bot == 1){
         resultado = "Gana el usuario"
     } else if(usr == 0 && bot == 1 || usr == 1 && bot == 2 || usr == 2 && bot == 0){

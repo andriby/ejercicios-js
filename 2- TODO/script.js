@@ -18,9 +18,11 @@ function actualizarListaTareas() {
     listaTareas.innerHTML = "";
     tareas.forEach((tarea, index) => {
         let nuevaTareaHtml = `
-            <li class="list-group-item" onclick="eliminarTarea(${index})">
-                ${tarea}
+            <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" onclick="eliminarTarea(${index})">
+            <label class="form-check-label">${tarea}</label>
             </li>
+
         `;
         listaTareas.innerHTML += nuevaTareaHtml;
     });

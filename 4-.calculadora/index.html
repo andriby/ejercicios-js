@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="container py-12 mx-auto">
+        <h1 class="text-center text-4xl mb-12">Calculadora</h1>
+
+        <div class="contenedor mx-auto p-4 bg-slate-800	w-[35rem]">
+            <div id="resultado" class="bg-white px-3 py-2 text-end text-2xl mx-auto">0</div>
+            <div class="teclas grid grid-cols-4 gap-3 mt-3">
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(1)">1</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(2)">2</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(3)">3</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="operador('+')">+</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(4)">4</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(5)">5</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(6)">6</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="operador('-')">-</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(7)">7</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(8)">8</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(9)">9</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="operador('*')">*</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="numero(0)">0</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="limpiar()">AC</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="operador('/')">/</button>
+                <button class="bg-slate-400 hover:bg-slate-500 py-8 transition" onclick="calcular()">=</button>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
