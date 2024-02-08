@@ -22,11 +22,11 @@ function generarCartas() {
     cartas.innerHTML = ""
     serie.forEach((posicion, index) => {
         let nuevaCarta = `
-        <div class="flex flex-col justify-center items-center gap-3 w-[15rem] bg-gray-500 py-14 px-10 h-[15rem] rounded shadow-xl carta" id="${index}" onclick="seleccionarCarta(${index})">
+        <div class="flex flex-col justify-center items-center gap-3 w-[15rem] bg-[#12161C] py-14 px-10 h-[15rem] rounded shadow-xl carta shadow-sm shadow-indigo-500/50" id="${index}" onclick="seleccionarCarta(${index})">
             <div class="cerrado"></div>
             <div class="abierto flex flex-col justify-center items-center gap-3">
                 <img src="./assets/${imagenes[posicion]}.png" class="w-[10rem] h-[10rem]">
-                <p class="uppercase text-center">${imagenes[posicion]}</p>
+                <p class="uppercase text-center text-white">${imagenes[posicion]}</p>
             </div>
         </div>
         `
