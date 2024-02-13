@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Formulario</title>
+</head>
+<body class="bg-[#0E0E10]">
+
+    <div class="absolute text-white px-3 py-2">
+        <a href="../index.html">
+            <img src="../back.png" class="w-[3.5rem]">
+        </a>
+    </div>
+    
+    <div class="flex flex-col lg:flex-row justify-center h-[100vh] min-h-80">
+        <div class="hidden lg:flex w-full lg:w-1/2 h-full  bg-center bg-cover shadow-lg shadow-blue-500/50" style="background-image: url(./assets/background-left.jpg);"></div>
+        <div class="flex flex-col items-center justify-center gap-5 w-full lg:w-1/2 h-full py-28 px-4 lg:px-12 text-[#EDEDED]">
+            <h1 class="text-center text-5xl font-['Inter']">Registrarse</h1>
+            <form action="logged.html" id="form">
+                <div class="bg-[#242c38] py-10 px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5 gap-x-10 justify-items-center content-center font-['Roboto'] rounded-lg shadow-lg shadow-gray-600/50">
+                    <div>
+                        <label for="nombre" class="text-lg">Nombre</label><br>
+                        <input type="text" class="border border-gray-600 rounded py-1 px-2 text-[#000]" id="nombre">
+                    </div>
+                    <div>
+                        <label for="apellido" class="text-lg">Apellido</label><br>
+                        <input type="text" class="border border-gray-600 rounded py-1 px-2 text-[#000]" id="apellido">
+                    </div>
+                    <div>
+                        <label for="email" class="text-lg">Email</label><br>
+                        <input type="email" class="border border-gray-600 rounded py-1 px-2 text-[#000]" id="email">
+                    </div>
+                    <div>
+                        <label for="telefono" class="text-lg">Telefono</label><br>
+                        <input type="number" class="border border-gray-600 rounded py-1 px-2 text-[#000]" id="telefono">
+                    </div>
+                    <div>
+                        <label for="password" class="text-lg">Contraseña</label><br>
+                        <input type="password" class="border border-gray-600 rounded py-1 px-2 text-[#000]" id="password">
+                    </div>
+                    <div>
+                        <label for="verPassword" class="text-lg">Verificar Contraseña</label><br>
+                        <input type="password" class="border border-gray-600 rounded py-1 px-2 text-[#000]" id="verPassword">
+                    </div>
+                    <button type="button" onclick="limpiar()" class="border border-gray-500 py-2 px-5 rounded-lg cursor-pointer hover:bg-gray-500 transition ease-in-out">Limpiar</button>
+                    <input type="submit" value="Acceder" class="bg-[#007BFF] py-2 px-5 rounded-lg cursor-pointer hover:bg-[#007bfff3] transition ease-in-out" onclick="validar()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
