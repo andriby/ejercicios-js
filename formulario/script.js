@@ -1,3 +1,7 @@
+function submitHandler(event) {
+    event.preventDefault();
+}
+
 let nombre = document.getElementById('nombre');
 let apellido = document.getElementById('apellido');
 let email = document.getElementById('email');
@@ -10,26 +14,27 @@ const regexMail = /^(\w|\.){1,}@\w+\.\w+(\.\w+)?$/
 const regexPhone = /^\d{10,11}$/
 const regexPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!.*_-])(?=.*\d)[A-Za-z\d!.*_-]{8,}$/;
 
-function validarCampo(value, regex, field, errorMessage) {
+function validarCampo(value, regex, campo, mensaje) {
     if (!regex.test(value) && value !== '') {
-        field.focus();
-        return errorMessage
+        campo.focus();
+        return mensaje
     }
     return ''
 }
 
-function validarPassword() {
-    errorMensaje = validarCampo(nombre.value, regexText, nombre, 'El nombre solo debe contener letras');
-    errorMensaje += validarCampo(apellido.value, regexText, apellido, 'El apellido solo debe contener letras');
-    errorMensaje += validarCampo(email.value, regexMail, email, 'Ingrese un correo electrónico válido');
-    errorMensaje += validarCampo(telefono.value, regexPhone, telefono, 'Ingrese un número telefónico válido');
-    errorMensaje += validarCampo(password.value, regexPassword, password, 'Ingrese una contraña valida')
+function validar() {
+    let errorMensaje = ''
+    errorMensaje += validarCampo(nombre.value, regexText, nombre, 'El nombre solo debe contener letras ');
+    errorMensaje += validarCampo(apellido.value, regexText, apellido, 'El apellido solo debe contener letras ');
+    errorMensaje += validarCampo(email.value, regexMail, email, 'Ingrese un correo electrónico válido ');
+    errorMensaje += validarCampo(telefono.value, regexPhone, telefono, 'Ingrese un número telefónico válido ');
+    errorMensaje += validarCampo(password.value, regexPassword, password, 'Ingrese una contraña valida ')
 
     if (password.value !== verPassword.value ) {
-        errorMensaje += 'Las contraseñas no coinciden.';
+        errorMensaje = 'Las contraseñas no coinciden. ';
     }
 
-    if (errorMensaje !== '') {
+    if (errorMensaje) {
         return (errorMensaje);
     }
 
@@ -38,15 +43,15 @@ function validarPassword() {
     }
 }
 
-function validar() {
-    let errorMensaje = validarPassword()
+function ingresar() {
+    let errorMensaje = validar()
     if (errorMensaje) {
         alert(errorMensaje)
-        document.getElementById('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-        })
-        errorMensaje = ''
+        document.getElementById('form').addEventListener('submit', submitHandler);
+    } else{
+        document.getElementById('form').removeEventListener('submit', submitHandler);
     }
+    errorMensaje = ''
 }
 
 function limpiar(){
