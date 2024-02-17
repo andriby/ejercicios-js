@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>TO DO</title>
+</head>
+<body class="bg-[#0E0E10]">
+    <div class="absolute text-white px-3 py-2">
+        <a href="../../index.html">
+            <img src="../../back.png" class="w-[3.5rem]">
+        </a>
+    </div>
+    <div class="container py-4">
+        <h1 class="text-center text-5xl my-4 text-white font-['Inter'] font-medium">TO DO</h1>
+            <div class="input-group mb-1">
+                <span for="tarea" class="text-white font-['Oswald'] input-group-text">Agregar Tarea</span>
+                <input type="text" class="form-control" id="taskTitle" placeholder="Titulo de la Tarea">
+                <input type="text" class="form-control" id="taskDesc" placeholder="Descripcion de la tarea">
+            </div>
+            <div id="error" class="text-red-600 text-sm mb-4 text-end"></div>
+        <button type="button" onclick="newTask()" class="border-solid border-2 text-white border-white rounded-lg font-['Inter'] py-1 px-6 hover:bg-[#9277D8] hover:text-black hover:border-[#9277D8] transition shadow mb-3">Agregar tarea</button>
+        <ul id="tareas" class="list-group"></ul>
+    </div>
+    
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
