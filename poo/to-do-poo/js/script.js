@@ -1,55 +1,87 @@
-var id = 0
-let tasks = []
-let error = document.getElementById("error")
+var id = 0;
+let tasks = [];
+let error = document.getElementById("error");
+let taskList = document.getElementById("tareas");
+let buttonAdd = document.getElementById("buttonAdd")
+let buttonUpdate = document.getElementById("buttonUpdate")
+buttonUpdate.classList.add('hidden')
+var index = 0
 
 class Task {
     constructor(id, title, description){
-        this.id = id
-        this.title = title
-        this.description = description
+        this.id = id;
+        this.title = title;
+        this.description = description;
     }
 
-    updateTasks(task, title, description){
-        task.title = title
-        task.description = description
+    updateTasks() {
+        taskList.innerHTML = "";
+        tasks.forEach((task, index) => {
+            let nuevaTareaHtml = `
+            <li class="list-group-item">
+                <label class="form-check-label"><h3 class="text-2xl">${task.title}:</h3><br> ${task.description}</label>
+                <button onclick="deleteTask(${index})" class="btn btn-warning float-right">Eliminar Tarea</button>
+                <button onclick="update(${index})" class="btn btn-secondary float-right mr-4">Actualizar Tarea</button>
+            </li            `;
+            taskList.innerHTML += nuevaTareaHtml;
+        });
     }
-}
-
-function newTask(){
-    error.innerHTML = '' 
-    let title = document.getElementById('taskTitle')
-    let description = document.getElementById('taskDesc')
-    if (!title.value && !description.value) {
-        error.innerHTML = "Por Favor agregue una tarea!"
-        return
-    }else {
-        let task = new Task(id, title.value, description.value)
-        id += 1
-        tasks.push(task)
-        title.value = ''
-        description.value = ''
-        updateTasks();
-        return task
-    }
-}
-
-function updateTasks() {
-    let taskList = document.getElementById("tareas");
-    taskList.innerHTML = "";
-    tasks.forEach((task, index) => {
-        let newTask = `
-        <li class="list-group-item">
-            <label class="form-check-label">${task.title}:<br> ${task.description}</label>
-            <button onclick="deleteTask(${index})" class="btn btn-warning float-right">Eliminar Tarea</button>
-            <button class="btn btn-secondary float-right mr-4">Actualizar Tarea</button>
-        </li>
-
-        `;
-        taskList.innerHTML += newTask;
-    });
 }
 
 function deleteTask(i){
-    tasks.splice(i, 1) 
-    updateTasks();
+    tasks.splice(i, 1);
+    let task = new Task(); 
+    task.updateTasks();
+}
+
+function updateTask() {
+    error.innerHTML = '';
+    let title = document.getElementById('taskTitle').value;
+    let description = document.getElementById('taskDesc').value;
+    if (!title || !description) {
+        error.innerHTML = "Por favor, Actualice correctamente la tarea.";
+    } else {
+        tasks[index].title = document.getElementById('taskTitle').value 
+        tasks[index].description = document.getElementById('taskDesc').value 
+        document.getElementById('taskTitle').value = ''
+        document.getElementById('taskDesc').value = ''
+        let task = new Task(); 
+        task.updateTasks();
+    }
+}
+
+function update(i){
+    error.innerHTML = '';
+    document.getElementById('taskTitle').value = tasks[i].title
+    document.getElementById('taskDesc').value = tasks[i].description
+    index = i
+    updateButton(true)
+}
+
+function newTask(){
+    error.innerHTML = '';
+    let title = document.getElementById('taskTitle').value;
+    let description = document.getElementById('taskDesc').value;
+    if (!title || !description) {
+        error.innerHTML = "Por favor, agregue una tarea.";
+    } else {
+        let task = new Task(id, title, description);
+        id += 1;
+        document.getElementById('taskTitle').value = ''
+        document.getElementById('taskDesc').value = ''
+        tasks.push(task);
+        task.updateTasks();
+    }
+}
+
+function updateButton(valor = false){
+    if (valor) {
+        content.innerHTML = "ACTUALIZAR TAREA"
+        buttonAdd.classList.add('hidden')
+        buttonUpdate.classList.remove('hidden')
+    } else{
+        content.innerHTML = "AGREGAR TAREA"
+        buttonUpdate.classList.remove('hidden')
+        buttonAdd.classList.remove('hidden')
+    }
 }

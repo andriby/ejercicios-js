@@ -19,12 +19,13 @@
     <div class="container py-4">
         <h1 class="text-center text-5xl my-4 text-white font-['Inter'] font-medium">TO DO</h1>
             <div class="input-group mb-1">
-                <span for="tarea" class="text-white font-['Oswald'] input-group-text">Agregar Tarea</span>
+                <span for="tarea" class="text-white font-['Oswald'] input-group-text" id="content">AGREGAR TAREA</span>
                 <input type="text" class="form-control" id="taskTitle" placeholder="Titulo de la Tarea">
                 <input type="text" class="form-control" id="taskDesc" placeholder="Descripcion de la tarea">
             </div>
             <div id="error" class="text-red-600 text-sm mb-4 text-end"></div>
-        <button type="button" onclick="newTask()" class="border-solid border-2 text-white border-white rounded-lg font-['Inter'] py-1 px-6 hover:bg-[#9277D8] hover:text-black hover:border-[#9277D8] transition shadow mb-3">Agregar tarea</button>
+        <button onclick="newTask()" type="button" class="border-solid border-2 text-white border-white rounded-lg font-['Inter'] py-1 px-6 hover:bg-[#9277D8] hover:text-black hover:border-[#9277D8] transition shadow mb-3" id="buttonAdd">Agregar tarea</button>
+        <button onclick="updateTask()" type="button" class="border-solid border-2 text-white border-white rounded-lg font-['Inter'] py-1 px-6 hover:bg-[#9277D8] hover:text-black hover:border-[#9277D8] transition shadow mb-3" id="buttonUpdate">Actualizar tarea</button>
         <ul id="tareas" class="list-group"></ul>
     </div>
     
