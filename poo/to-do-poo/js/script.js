@@ -47,6 +47,7 @@ function updateTask() {
         document.getElementById('taskDesc').value = ''
         let task = new Task(); 
         task.updateTasks();
+        updateButton(false)
     }
 }
 
@@ -81,7 +82,13 @@ function updateButton(valor = false){
         buttonUpdate.classList.remove('hidden')
     } else{
         content.innerHTML = "AGREGAR TAREA"
-        buttonUpdate.classList.remove('hidden')
+        buttonUpdate.classList.add('hidden')
         buttonAdd.classList.remove('hidden')
     }
 }
+
+document.getElementById("taskDesc").addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        newTask();
+    }
+});
